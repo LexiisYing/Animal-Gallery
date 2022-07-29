@@ -1,33 +1,88 @@
+<!DOCTYPE HTML>
+<html lang="en">
 <html>
-<h1>This is a gallery of lovely animals! Guess which animal will show up next?</h1>
-<br>
-<img id="animals" width="700">
-<br>    
-<br>
-<br>  
-<button id="previous"><</button>
-<button id="next">></button>
-<br>
-<br>
-<p>Leave a comment of your favourite animal!</p>
-<br>
-<label name="favAnimal">Favourite animal:</label>
-<br>
-<br>
-<input type="text" id="favAnimal">
-<br>
-<br>
-<button type="submit">Submit</button>
+  <main>
+    <h1 class="text">This is a gallery of lovely animals! Guess which animal will show up next?</h1>
+    <div id="container">
+        <br>
+        <img id="animals" width="500">
+        <br>    
+        <br>
+        <br>  
+        <button id="previous"><</button>
+        <button id="next">></button>
+        <br>
+        <br>
+        <p class="text">Leave a comment of your favourite animal!</p>
+        <br>
+        <label name="favAnimal" class="text">Favourite animal:</label>
+        <br>
+        <br>
+        <input type="text" id="favAnimal">
+        <br>
+        <br>
+        <button type="submit" >Submit</button>
+          
+ <h2 class="text">Shop some of our best products for your pets!</h2>
+          <ul>
+            <li >Dry food</li>
+            <br>
+            <img width="100px"src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fi.huffpost.com%2Fgen%2F1339922%2Fimages%2Fo-DOG-FOOD-facebook.jpg&f=1&nofb=1">
+            <button id="buy">Add to shopping cart</button>
+            <br>
+             <li>Wet food</li>
+            <br>
+            <img width="100px"src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.petco.com%2Fpetco%2Fimage%2Fupload%2Ff_auto%2Cq_auto%2F2879514-center-1&f=1&nofb=1">
+            <button id="buy">Add to shopping cart</button>
+            <br>
+             <li>Vitamins</li>
+            <br>
+            <img width="100px"src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.chewy.com%2Fis%2Fimage%2Fcatalog%2F138389_MAIN._AC_SL1500_V1510184677_.jpg&f=1&nofb=1">
+            <button id="buy">Add to shopping cart</button>
+            <br>
+          </ul>
+<p id="shop">Shopping cart balance:<span id="shopping_total">0</span></p>
+
+          
+    </div>
+  </main>
+</html>
+
+<style>
+  body {
+  margin: 0;
+  height: 100%;
+  background: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp4468334.jpg&f=1&nofb=1)
+}
+
+#container {
+  display: block;
+  margin-top: 50px;
+  margin-left: 350px;
+  margin-right: auto;
+}
+
+img {
+  border-radius: 20px;
+}
+
+.text {
+  color: pink;
+  font-weight: bold;
+}
+
+</style>
 
 
 <script>
-var pics;
+var pics, shopping_total, array;
 
 
 pics = ['http://images2.fanpop.com/image/photos/13900000/Dog-Family-dogs-13937053-1600-1200.jpg', 'https://d.ibtimes.co.uk/en/full/1654558/pet-cat.jpg', 'http://wallup.net/wp-content/uploads/2017/03/28/107859-tiger-animals.jpg', 'https://wallup.net/wp-content/uploads/2018/03/19/545283-wildlife-landscape-Africa-animals-elephant.jpg', 'http://wallup.net/wp-content/uploads/2016/01/306596-animals-birds-hibou.jpg'];
 let element_animals = document.getElementById('animals');
 pics.push(pics[0]);
 element_animals.setAttribute("src", pics.shift());
+shopping_total = [0];
 
 
 document.getElementById('next').addEventListener('click', (event) => {
@@ -41,6 +96,13 @@ document.getElementById('previous').addEventListener('click', (event) => {
   let element_animals3 = document.getElementById('animals');
   pics.unshift(pics.slice(-1)[0]);
   element_animals3.setAttribute("src", pics.pop());
+
+});
+
+document.getElementById('buy').addEventListener('click', (event) => {
+  shopping_total = (typeof shopping_total === 'number' ? shopping_total : 0) + 0;
+  let element_shopping_total = document.getElementById('shopping_total');
+  element_shopping_total.innerText = array.reduce((a,b) => a+b, 0);
 
 });
 </script>
