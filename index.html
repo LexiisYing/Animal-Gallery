@@ -27,7 +27,7 @@ var pics;
 pics = ['http://images2.fanpop.com/image/photos/13900000/Dog-Family-dogs-13937053-1600-1200.jpg', 'https://d.ibtimes.co.uk/en/full/1654558/pet-cat.jpg', 'http://wallup.net/wp-content/uploads/2017/03/28/107859-tiger-animals.jpg', 'https://wallup.net/wp-content/uploads/2018/03/19/545283-wildlife-landscape-Africa-animals-elephant.jpg', 'http://wallup.net/wp-content/uploads/2016/01/306596-animals-birds-hibou.jpg'];
 let element_animals = document.getElementById('animals');
 pics.push(pics[0]);
-element_animals.setAttribute("src", pics[0]);
+element_animals.setAttribute("src", pics.shift());
 
 
 document.getElementById('next').addEventListener('click', (event) => {
