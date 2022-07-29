@@ -1,0 +1,48 @@
+<html>
+<h1>This is a gallery of lovely animals! Guess which animal will show up next?</h1>
+<br>
+<img id="animals" width="300">
+<br>    
+<br>
+<br>  
+<button id="previous"><</button>
+<button id="next">></button>
+<br>
+<br>
+<p>Leave a comment of your favourite animal!</p>
+<br>
+<label name="favAnimal">Favourite animal:</label>
+<br>
+<br>
+<input type="text" id="favAnimal">
+<br>
+<br>
+<button type="submit">Submit</button>
+
+
+<script>
+var pics;
+
+
+pics = ['http://images2.fanpop.com/image/photos/13900000/Dog-Family-dogs-13937053-1600-1200.jpg', 'https://d.ibtimes.co.uk/en/full/1654558/pet-cat.jpg', 'http://wallup.net/wp-content/uploads/2017/03/28/107859-tiger-animals.jpg', 'https://wallup.net/wp-content/uploads/2018/03/19/545283-wildlife-landscape-Africa-animals-elephant.jpg', 'http://wallup.net/wp-content/uploads/2016/01/306596-animals-birds-hibou.jpg'];
+let element_animals = document.getElementById('animals');
+pics.push(pics[0]);
+element_animals.setAttribute("src", pics[0]);
+
+
+document.getElementById('next').addEventListener('click', (event) => {
+  let element_animals2 = document.getElementById('animals');
+  pics.push(pics[0]);
+  element_animals2.setAttribute("src", pics.shift());
+
+});
+
+document.getElementById('previous').addEventListener('click', (event) => {
+  let element_animals3 = document.getElementById('animals');
+  pics.unshift(pics.slice(-1)[0]);
+  element_animals3.setAttribute("src", pics.pop());
+
+});
+</script>
+
+</html>
